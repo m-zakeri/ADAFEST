@@ -1,7 +1,7 @@
 ## ADAFEST: A Data-Driven Approach For Estimating / Evaluating Software Testability
 
 
-y: **Morteza Zakeri**†
+By: **Morteza Zakeri**†
 
 † Ph.D. Student, Iran University of Science and Technology, Tehran, Iran (m-zakeri@live.com).
 
