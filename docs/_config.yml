@@ -1,1 +1,5 @@
 theme: jekyll-theme-minimal
+title: "ADAFEST"
+description: "A Data-Driven Approach For Estimating/Evaluating Software Testability"
+logo: "./figs/logo.png"
+show_downloads: "true"
