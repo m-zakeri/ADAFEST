@@ -1,0 +1,1453 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Data-Driven Approach For Estimating Software Testability">
+      
+      
+      
+        <meta name="author" content="Morteza Zakeri">
+      
+      
+        <link rel="canonical" href="https://m-zakeri.github.io/">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>ADAFEST Docs (v0.1.1)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adafest-a-data-driven-approach-for-estimating-software-testability" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="ADAFEST Docs (v0.1.1)" class="md-header__button md-logo" aria-label="ADAFEST Docs (v0.1.1)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ADAFEST Docs (v0.1.1)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/m-zakeri/ADAFEST/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="ADAFEST Docs (v0.1.1)" class="md-nav__button md-logo" aria-label="ADAFEST Docs (v0.1.1)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ADAFEST Docs (v0.1.1)
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/m-zakeri/ADAFEST/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-source-code-metrics" class="md-nav__link">
+    Appendix A: source code metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-benchmark-projects" class="md-nav__link">
+    Appendix B: benchmark projects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-c-dataset" class="md-nav__link">
+    Appendix C: dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-date" class="md-nav__link">
+    Release date
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="publications/" class="md-nav__link">
+        Publications
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/m-zakeri/ADAFEST/issues" class="md-nav__link">
+        Issue Tracker
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-a-source-code-metrics" class="md-nav__link">
+    Appendix A: source code metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-b-benchmark-projects" class="md-nav__link">
+    Appendix B: benchmark projects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-c-dataset" class="md-nav__link">
+    Appendix C: dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-date" class="md-nav__link">
+    Release date
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/m-zakeri/ADAFEST/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="adafest-a-data-driven-approach-for-estimating-software-testability">ADAFEST: A Data-Driven Approach For Estimating Software Testability</h1>
+<p><strong>Morteza Zakeri</strong>†</p>
+<p>† Ph.D. Student, Iran University of Science and Technology, Tehran, Iran (m-zakeri@live.com).</p>
+<p>Version 0.1.1 (20 March 2021) ├ Download [PDF] version</p>
+<p><strong>Abstract—</strong> 
+<strong>C</strong>onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.</p>
+<p><strong>Index Terms:</strong> Software testability, software metrics, code coverage, machine learning.</p>
+<p>This page provides supplementary materials for ADAFEST project, including a full list of source code metrics, a full list of case studies, and description of datasets.</p>
+<h2 id="appendix-a-source-code-metrics">Appendix A: source code metrics</h2>
+<p>The list of all metrics along with their quality subject, full name, and granularity used in our experimental study. </p>
+<table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>Metric abbreviation</th>
+<th>Metric full name</th>
+<th>Granularity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Size/Count</td>
+<td>CSLOC</td>
+<td>Class line of code</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOST</td>
+<td>Class number of statements</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOSM</td>
+<td>Class number of static   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOSA</td>
+<td>Class number of static   attributes</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOIM</td>
+<td>Class number of instance   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOIA</td>
+<td>Class number of instance   attributes</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOM</td>
+<td>Class number of methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOMNAMM</td>
+<td>Class number of not accessor   or mutator methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOCON</td>
+<td>Class number of constructors</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOP</td>
+<td>Class number of parameters</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>PKLOC</td>
+<td>Package line of code</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOST</td>
+<td>Package number of statements</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOSM</td>
+<td>Package number of static   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOSA</td>
+<td>Package number of static   attributes</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOIM</td>
+<td>Package number of instance   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOIA</td>
+<td>Package number of instance   attributes</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOMNAMM</td>
+<td>Package number of not   accessor or mutator methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOCS</td>
+<td>Package number of classes</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOFL</td>
+<td>Package number of files</td>
+<td>Package</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>CSCC</td>
+<td>Class cyclomatic complexity</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNESTING</td>
+<td>Class nesting level of   control constructs</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSPATH</td>
+<td>Class number of unique paths   across a body of code</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSKNOTS</td>
+<td>Measure of overlapping jumps</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>PKCC</td>
+<td>Package cyclomatic complexity</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNESTING</td>
+<td>Package nesting level of   control constructs</td>
+<td>Package</td>
+</tr>
+<tr>
+<td>Cohesion</td>
+<td>LOCM</td>
+<td>Lack of Cohesion in Methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td>Coupling</td>
+<td>CBO</td>
+<td>Coupling between objects</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>RFC</td>
+<td>Response for a class</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>FANIN</td>
+<td>Total numbers of inputs a   class functions uses plus the number of unique subprograms calling class   functions.</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>FANOUT</td>
+<td>Total of functions calls plus   parameters set/modify of class functions</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>DEPENDS</td>
+<td>All dependencies of the class</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>DEPENDSBY</td>
+<td>Entities depended on by the   class</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CFNAMM</td>
+<td>Called foreign not accessor   or mutator methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>ATFD</td>
+<td>Access to foreign data</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>DAC</td>
+<td>Data abstraction coupling</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NOMCALL</td>
+<td>Number of method calls</td>
+<td>Class</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>CSNODM</td>
+<td>Class number of default methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOPM</td>
+<td>Class number of private   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOPRM</td>
+<td>Class number of protected   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOPLM</td>
+<td>Class number of public   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>CSNOAM</td>
+<td>Class number of accessor   methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNODM</td>
+<td>Package number of default   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOPM</td>
+<td>Package number of private   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOPRM</td>
+<td>Package number of protected   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOPLM</td>
+<td>Package number of public   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOAM</td>
+<td>Package number of accessor   methods</td>
+<td>Package</td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td>DIT</td>
+<td>Depth of inheritance tree</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NOC</td>
+<td>Number of children</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NOP</td>
+<td>Number of parents</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NIM</td>
+<td>Number of inherited methods</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NMO</td>
+<td>Number of methods overridden</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>NOII</td>
+<td>Number of implemented interfaces</td>
+<td>Class</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOI</td>
+<td>Package number of interfaces</td>
+<td>Package</td>
+</tr>
+<tr>
+<td></td>
+<td>PKNOAC</td>
+<td>Package number of abstract   classes</td>
+<td>Package</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appendix-b-benchmark-projects">Appendix B: benchmark projects</h2>
+<p>List of Java projects in SF110 corpus</p>
+<table>
+<thead>
+<tr>
+<th align="left">Project</th>
+<th align="left">Domain</th>
+<th align="right">Java files</th>
+<th align="right">Line of codes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Jgaap</td>
+<td align="left">-</td>
+<td align="right">17</td>
+<td align="right">1009</td>
+</tr>
+<tr>
+<td align="left">Netweaver</td>
+<td align="left">-</td>
+<td align="right">204</td>
+<td align="right">24380</td>
+</tr>
+<tr>
+<td align="left">Squirrel-sql</td>
+<td align="left">-</td>
+<td align="right">1151</td>
+<td align="right">122959</td>
+</tr>
+<tr>
+<td align="left">Sweethome3d</td>
+<td align="left">-</td>
+<td align="right">185</td>
+<td align="right">68704</td>
+</tr>
+<tr>
+<td align="left">Vuze</td>
+<td align="left">-</td>
+<td align="right">3304</td>
+<td align="right">517207</td>
+</tr>
+<tr>
+<td align="left">Freemind</td>
+<td align="left">-</td>
+<td align="right">472</td>
+<td align="right">62702</td>
+</tr>
+<tr>
+<td align="left">Checkstyle</td>
+<td align="left">-</td>
+<td align="right">169</td>
+<td align="right">19575</td>
+</tr>
+<tr>
+<td align="left">Weka</td>
+<td align="left">-</td>
+<td align="right">1031</td>
+<td align="right">243941</td>
+</tr>
+<tr>
+<td align="left">Liferay</td>
+<td align="left">-</td>
+<td align="right">8345</td>
+<td align="right">1553460</td>
+</tr>
+<tr>
+<td align="left">Pdfsam</td>
+<td align="left">-</td>
+<td align="right">369</td>
+<td align="right">35922</td>
+</tr>
+<tr>
+<td align="left">Water-simulator</td>
+<td align="left">-</td>
+<td align="right">49</td>
+<td align="right">6503</td>
+</tr>
+<tr>
+<td align="left">Firebird</td>
+<td align="left">-</td>
+<td align="right">258</td>
+<td align="right">40005</td>
+</tr>
+<tr>
+<td align="left">Imsmart</td>
+<td align="left">-</td>
+<td align="right">20</td>
+<td align="right">1039</td>
+</tr>
+<tr>
+<td align="left">Dsachat</td>
+<td align="left">-</td>
+<td align="right">32</td>
+<td align="right">3861</td>
+</tr>
+<tr>
+<td align="left">Jdbacl</td>
+<td align="left">-</td>
+<td align="right">126</td>
+<td align="right">18434</td>
+</tr>
+<tr>
+<td align="left">Omjstate</td>
+<td align="left">-</td>
+<td align="right">23</td>
+<td align="right">593</td>
+</tr>
+<tr>
+<td align="left">Beanbin</td>
+<td align="left">-</td>
+<td align="right">88</td>
+<td align="right">3788</td>
+</tr>
+<tr>
+<td align="left">Templatedetails</td>
+<td align="left">-</td>
+<td align="right">1</td>
+<td align="right">391</td>
+</tr>
+<tr>
+<td align="left">Inspirento</td>
+<td align="left">-</td>
+<td align="right">36</td>
+<td align="right">2427</td>
+</tr>
+<tr>
+<td align="left">Jsecurity</td>
+<td align="left">-</td>
+<td align="right">298</td>
+<td align="right">13134</td>
+</tr>
+<tr>
+<td align="left">Jmca</td>
+<td align="left">-</td>
+<td align="right">25</td>
+<td align="right">14885</td>
+</tr>
+<tr>
+<td align="left">Tullibee</td>
+<td align="left">-</td>
+<td align="right">20</td>
+<td align="right">3236</td>
+</tr>
+<tr>
+<td align="left">Nekomud</td>
+<td align="left">-</td>
+<td align="right">10</td>
+<td align="right">363</td>
+</tr>
+<tr>
+<td align="left">Geo-google</td>
+<td align="left">-</td>
+<td align="right">62</td>
+<td align="right">6623</td>
+</tr>
+<tr>
+<td align="left">Byuic</td>
+<td align="left">-</td>
+<td align="right">12</td>
+<td align="right">5874</td>
+</tr>
+<tr>
+<td align="left">Jwbf</td>
+<td align="left">-</td>
+<td align="right">69</td>
+<td align="right">5848</td>
+</tr>
+<tr>
+<td align="left">Saxpath</td>
+<td align="left">-</td>
+<td align="right">16</td>
+<td align="right">2620</td>
+</tr>
+<tr>
+<td align="left">Jni-inchi</td>
+<td align="left">-</td>
+<td align="right">24</td>
+<td align="right">1156</td>
+</tr>
+<tr>
+<td align="left">Jipa</td>
+<td align="left">-</td>
+<td align="right">3</td>
+<td align="right">392</td>
+</tr>
+<tr>
+<td align="left">Gangup</td>
+<td align="left">-</td>
+<td align="right">95</td>
+<td align="right">11088</td>
+</tr>
+<tr>
+<td align="left">Greencow</td>
+<td align="left">-</td>
+<td align="right">1</td>
+<td align="right">6</td>
+</tr>
+<tr>
+<td align="left">Apbsmem</td>
+<td align="left">-</td>
+<td align="right">50</td>
+<td align="right">4406</td>
+</tr>
+<tr>
+<td align="left">A4j</td>
+<td align="left">-</td>
+<td align="right">45</td>
+<td align="right">3602</td>
+</tr>
+<tr>
+<td align="left">Bpmail</td>
+<td align="left">-</td>
+<td align="right">37</td>
+<td align="right">1681</td>
+</tr>
+<tr>
+<td align="left">Xisemele</td>
+<td align="left">-</td>
+<td align="right">56</td>
+<td align="right">1805</td>
+</tr>
+<tr>
+<td align="left">Httpanalyzer</td>
+<td align="left">-</td>
+<td align="right">19</td>
+<td align="right">3588</td>
+</tr>
+<tr>
+<td align="left">Javaviewcontrol</td>
+<td align="left">-</td>
+<td align="right">17</td>
+<td align="right">4618</td>
+</tr>
+<tr>
+<td align="left">Sbmlreader2</td>
+<td align="left">-</td>
+<td align="right">6</td>
+<td align="right">499</td>
+</tr>
+<tr>
+<td align="left">Corina</td>
+<td align="left">-</td>
+<td align="right">349</td>
+<td align="right">41290</td>
+</tr>
+<tr>
+<td align="left">Schemaspy</td>
+<td align="left">-</td>
+<td align="right">72</td>
+<td align="right">10008</td>
+</tr>
+<tr>
+<td align="left">Petsoar</td>
+<td align="left">-</td>
+<td align="right">76</td>
+<td align="right">2255</td>
+</tr>
+<tr>
+<td align="left">Javabullboard</td>
+<td align="left">-</td>
+<td align="right">44</td>
+<td align="right">8297</td>
+</tr>
+<tr>
+<td align="left">Diffi</td>
+<td align="left">-</td>
+<td align="right">10</td>
+<td align="right">524</td>
+</tr>
+<tr>
+<td align="left">Gaj</td>
+<td align="left">-</td>
+<td align="right">14</td>
+<td align="right">320</td>
+</tr>
+<tr>
+<td align="left">Glengineer</td>
+<td align="left">-</td>
+<td align="right">41</td>
+<td align="right">3124</td>
+</tr>
+<tr>
+<td align="left">Follow</td>
+<td align="left">-</td>
+<td align="right">60</td>
+<td align="right">4813</td>
+</tr>
+<tr>
+<td align="left">Asphodel</td>
+<td align="left">-</td>
+<td align="right">24</td>
+<td align="right">691</td>
+</tr>
+<tr>
+<td align="left">Lilith</td>
+<td align="left">-</td>
+<td align="right">295</td>
+<td align="right">46198</td>
+</tr>
+<tr>
+<td align="left">Summa</td>
+<td align="left">-</td>
+<td align="right">584</td>
+<td align="right">69341</td>
+</tr>
+<tr>
+<td align="left">Lotus</td>
+<td align="left">-</td>
+<td align="right">54</td>
+<td align="right">1028</td>
+</tr>
+<tr>
+<td align="left">Nutzenportfolio</td>
+<td align="left">-</td>
+<td align="right">84</td>
+<td align="right">8268</td>
+</tr>
+<tr>
+<td align="left">Dvd-homevideo</td>
+<td align="left">-</td>
+<td align="right">9</td>
+<td align="right">2913</td>
+</tr>
+<tr>
+<td align="left">Resources4j</td>
+<td align="left">-</td>
+<td align="right">14</td>
+<td align="right">1242</td>
+</tr>
+<tr>
+<td align="left">Diebierse</td>
+<td align="left">-</td>
+<td align="right">20</td>
+<td align="right">1888</td>
+</tr>
+<tr>
+<td align="left">Rif</td>
+<td align="left">-</td>
+<td align="right">15</td>
+<td align="right">953</td>
+</tr>
+<tr>
+<td align="left">Biff</td>
+<td align="left">-</td>
+<td align="right">3</td>
+<td align="right">2097</td>
+</tr>
+<tr>
+<td align="left">Jiprof</td>
+<td align="left">-</td>
+<td align="right">113</td>
+<td align="right">13911</td>
+</tr>
+<tr>
+<td align="left">Lagoon</td>
+<td align="left">-</td>
+<td align="right">81</td>
+<td align="right">9956</td>
+</tr>
+<tr>
+<td align="left">Shp2kml</td>
+<td align="left">-</td>
+<td align="right">4</td>
+<td align="right">266</td>
+</tr>
+<tr>
+<td align="left">Db-everywhere</td>
+<td align="left">-</td>
+<td align="right">104</td>
+<td align="right">7125</td>
+</tr>
+<tr>
+<td align="left">Lavalamp</td>
+<td align="left">-</td>
+<td align="right">54</td>
+<td align="right">1474</td>
+</tr>
+<tr>
+<td align="left">Jhandballmoves</td>
+<td align="left">-</td>
+<td align="right">73</td>
+<td align="right">5345</td>
+</tr>
+<tr>
+<td align="left">Hft-bomberman</td>
+<td align="left">-</td>
+<td align="right">135</td>
+<td align="right">8386</td>
+</tr>
+<tr>
+<td align="left">Fps370</td>
+<td align="left">-</td>
+<td align="right">8</td>
+<td align="right">1506</td>
+</tr>
+<tr>
+<td align="left">Mygrid</td>
+<td align="left">-</td>
+<td align="right">37</td>
+<td align="right">3317</td>
+</tr>
+<tr>
+<td align="left">Templateit</td>
+<td align="left">-</td>
+<td align="right">19</td>
+<td align="right">2463</td>
+</tr>
+<tr>
+<td align="left">Sugar</td>
+<td align="left">-</td>
+<td align="right">37</td>
+<td align="right">3147</td>
+</tr>
+<tr>
+<td align="left">Noen</td>
+<td align="left">-</td>
+<td align="right">408</td>
+<td align="right">18867</td>
+</tr>
+<tr>
+<td align="left">Dom4j</td>
+<td align="left">-</td>
+<td align="right">173</td>
+<td align="right">18209</td>
+</tr>
+<tr>
+<td align="left">Objectexplorer</td>
+<td align="left">-</td>
+<td align="right">88</td>
+<td align="right">6988</td>
+</tr>
+<tr>
+<td align="left">Jtailgui</td>
+<td align="left">-</td>
+<td align="right">44</td>
+<td align="right">2020</td>
+</tr>
+<tr>
+<td align="left">Gsftp</td>
+<td align="left">-</td>
+<td align="right">17</td>
+<td align="right">2332</td>
+</tr>
+<tr>
+<td align="left">Gae-app-manager</td>
+<td align="left">-</td>
+<td align="right">8</td>
+<td align="right">411</td>
+</tr>
+<tr>
+<td align="left">Biblestudy</td>
+<td align="left">-</td>
+<td align="right">21</td>
+<td align="right">2312</td>
+</tr>
+<tr>
+<td align="left">Lhamacaw</td>
+<td align="left">-</td>
+<td align="right">108</td>
+<td align="right">22772</td>
+</tr>
+<tr>
+<td align="left">Jnfe</td>
+<td align="left">-</td>
+<td align="right">68</td>
+<td align="right">2096</td>
+</tr>
+<tr>
+<td align="left">Echodep</td>
+<td align="left">-</td>
+<td align="right">81</td>
+<td align="right">15722</td>
+</tr>
+<tr>
+<td align="left">Ext4j</td>
+<td align="left">-</td>
+<td align="right">45</td>
+<td align="right">1892</td>
+</tr>
+<tr>
+<td align="left">Battlecry</td>
+<td align="left">-</td>
+<td align="right">11</td>
+<td align="right">2524</td>
+</tr>
+<tr>
+<td align="left">Fim1</td>
+<td align="left">-</td>
+<td align="right">70</td>
+<td align="right">10294</td>
+</tr>
+<tr>
+<td align="left">Fixsuite</td>
+<td align="left">-</td>
+<td align="right">25</td>
+<td align="right">2665</td>
+</tr>
+<tr>
+<td align="left">Openhre</td>
+<td align="left">-</td>
+<td align="right">135</td>
+<td align="right">8355</td>
+</tr>
+<tr>
+<td align="left">Dash-framework</td>
+<td align="left">-</td>
+<td align="right">22</td>
+<td align="right">241</td>
+</tr>
+<tr>
+<td align="left">Io-project</td>
+<td align="left">-</td>
+<td align="right">19</td>
+<td align="right">698</td>
+</tr>
+<tr>
+<td align="left">Caloriecount</td>
+<td align="left">-</td>
+<td align="right">684</td>
+<td align="right">61547</td>
+</tr>
+<tr>
+<td align="left">Twfbplayer</td>
+<td align="left">-</td>
+<td align="right">104</td>
+<td align="right">7240</td>
+</tr>
+<tr>
+<td align="left">Sfmis</td>
+<td align="left">-</td>
+<td align="right">19</td>
+<td align="right">1288</td>
+</tr>
+<tr>
+<td align="left">Wheelwebtool</td>
+<td align="left">-</td>
+<td align="right">113</td>
+<td align="right">16275</td>
+</tr>
+<tr>
+<td align="left">Javathena</td>
+<td align="left">-</td>
+<td align="right">53</td>
+<td align="right">10493</td>
+</tr>
+<tr>
+<td align="left">Ipcalculator</td>
+<td align="left">-</td>
+<td align="right">10</td>
+<td align="right">2684</td>
+</tr>
+<tr>
+<td align="left">Xbus</td>
+<td align="left">-</td>
+<td align="right">203</td>
+<td align="right">23514</td>
+</tr>
+<tr>
+<td align="left">Ifx-framework</td>
+<td align="left">-</td>
+<td align="right">4027</td>
+<td align="right">120355</td>
+</tr>
+<tr>
+<td align="left">Shop</td>
+<td align="left">-</td>
+<td align="right">34</td>
+<td align="right">3894</td>
+</tr>
+<tr>
+<td align="left">At-robots2-j</td>
+<td align="left">-</td>
+<td align="right">231</td>
+<td align="right">9459</td>
+</tr>
+<tr>
+<td align="left">Jaw-br</td>
+<td align="left">-</td>
+<td align="right">30</td>
+<td align="right">4851</td>
+</tr>
+<tr>
+<td align="left">Jopenchart</td>
+<td align="left">-</td>
+<td align="right">48</td>
+<td align="right">3996</td>
+</tr>
+<tr>
+<td align="left">Jiggler</td>
+<td align="left">-</td>
+<td align="right">184</td>
+<td align="right">20072</td>
+</tr>
+<tr>
+<td align="left">Gfarcegestionfa</td>
+<td align="left">-</td>
+<td align="right">50</td>
+<td align="right">3662</td>
+</tr>
+<tr>
+<td align="left">Dcparseargs</td>
+<td align="left">-</td>
+<td align="right">6</td>
+<td align="right">204</td>
+</tr>
+<tr>
+<td align="left">Classviewer</td>
+<td align="left">-</td>
+<td align="right">7</td>
+<td align="right">1467</td>
+</tr>
+<tr>
+<td align="left">Jcvi-javacommon</td>
+<td align="left">-</td>
+<td align="right">619</td>
+<td align="right">45496</td>
+</tr>
+<tr>
+<td align="left">Quickserver</td>
+<td align="left">-</td>
+<td align="right">152</td>
+<td align="right">16040</td>
+</tr>
+<tr>
+<td align="left">Jclo</td>
+<td align="left">-</td>
+<td align="right">3</td>
+<td align="right">387</td>
+</tr>
+<tr>
+<td align="left">Celwars2009</td>
+<td align="left">-</td>
+<td align="right">11</td>
+<td align="right">2876</td>
+</tr>
+<tr>
+<td align="left">Heal</td>
+<td align="left">-</td>
+<td align="right">184</td>
+<td align="right">22521</td>
+</tr>
+<tr>
+<td align="left">Feudalismgame</td>
+<td align="left">-</td>
+<td align="right">36</td>
+<td align="right">3515</td>
+</tr>
+<tr>
+<td align="left">Trans-locator</td>
+<td align="left">-</td>
+<td align="right">5</td>
+<td align="right">357</td>
+</tr>
+<tr>
+<td align="left">Newzgrabber</td>
+<td align="left">-</td>
+<td align="right">39</td>
+<td align="right">5874</td>
+</tr>
+<tr>
+<td align="left">Falselight</td>
+<td align="left">-</td>
+<td align="right">8</td>
+<td align="right">372</td>
+</tr>
+</tbody>
+</table>
+<h2 id="appendix-c-dataset">Appendix C: dataset</h2>
+<p>The description of DS1 to DS5.</p>
+<h2 id="release-date">Release date</h2>
+<p>The full version of source code will be available as soon as the relevant paper(s) are published.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        <a href="publications/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Publications
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2020-2021 ADAFEST project - Reverse engineering laboratory
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>
