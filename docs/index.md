@@ -1,21 +1,21 @@
-## ADAFEST: A Data-Driven Approach For Estimating / Evaluating Software Testability
+# ADAFEST: A Data-Driven Approach For Estimating Software Testability
 
-
-By: **Morteza Zakeri**†
+**Morteza Zakeri**†
 
 † Ph.D. Student, Iran University of Science and Technology, Tehran, Iran (m-zakeri@live.com).
 
-Version 0.1.0 (8 November 2020) ├ Download [PDF] version
+Version 0.1.1 (20 March 2021) ├ Download [PDF] version
 
 
-**Abstract—** **C**onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
+**Abstract—** 
+**C**onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
   
 **Index Terms:** Software testability, software metrics, code coverage, machine learning.
 
 
 This page provides supplementary materials for ADAFEST project, including a full list of source code metrics, a full list of case studies, and description of datasets.
 
-### Appendix A: Metrics
+## Appendix A: source code metrics
 The list of all metrics along with their quality subject, full name, and granularity used in our experimental study. 
 
 |     Subject        	|     Metric abbreviation    	|     Metric full name                                                                                                     	|     Granularity     	|
@@ -77,7 +77,8 @@ The list of all metrics along with their quality subject, full name, and granula
 
 
 
-### Appendix B: Projects (SF110)
+## Appendix B: benchmark projects
+
 List of Java projects in SF110 corpus
 
 | Project         | Domain   |   Java files |   Line of codes |
@@ -193,9 +194,9 @@ List of Java projects in SF110 corpus
 | Falselight      | -        |            8 |             372 |
 
 
-### Appendix C: Dataset
+##Appendix C: dataset
 The description of DS1 to DS5.
 
 
-### Release date
+## Release date
 The full version of source code will be available as soon as the relevant paper(s) are published.
