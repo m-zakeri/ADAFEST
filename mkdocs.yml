@@ -1,0 +1,41 @@
+site_name: ADAFEST Docs (v0.1.1)
+site_url: https://m-zakeri.github.io
+repo_url: https://github.com/m-zakeri/ADAFEST
+site_description: A Data-Driven Approach For Estimating Software Testability
+site_author: Morteza Zakeri
+copyright: © 2020-2021 ADAFEST project - Reverse engineering laboratory
+
+theme:
+  name: material
+  palette:
+    scheme: preference
+    primary: pink
+  icon:
+    logo: material/library
+  features:
+    - header.autohide
+  extra:
+    social:
+      - icon: fontawesome/brands/linkedin
+        link: https://www.linkedin.com/in/mortazazakeri/
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - import os
+          selection:
+            members: True
+
+nav:
+    - Home: index.md
+    - Metrics: metrics.md
+    - Benchmarks: benchmarks.md
+    - Modules:
+        - Main: modules/main.md
+    - Publications: publications.md
+    - Issue Tracker: 'https://github.com/m-zakeri/ADAFEST/issues'
