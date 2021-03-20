@@ -38,4 +38,5 @@ nav:
     - Modules:
         - Main: modules/main.md
     - Publications: publications.md
+    - Related projects: related_projects.md
     - Issue Tracker: 'https://github.com/m-zakeri/ADAFEST/issues'
