@@ -1,20 +1,29 @@
 """
-ADAFEST: A Data-Driven Approach to Estimating / Evaluating Software Testability
-Main file.
-The full version of source code will be available as soon as the relevant paper(s) are published.
+The main module of DAFEST project.
+
+ADAFEST is an abbreviation:  'A Data-Driven Approach to Estimating / Evaluating Software Testability'
+
+The full version of source code will be available
+as soon as the relevant paper(s) are published.
 
 """
 
 
-def print_welcome(name) -> None:
+class Main():
+    """Welcome to project ADAFEST
+    This file contains the main script
     """
-    Welcome to project {ADAFEST,}
-    :param name: The name of the project
-    :return: None
-    """
-    print(f'Welcome to the project {name}.')
+
+    @classmethod
+    def print_welcome(cls, name) -> None:
+        """
+        Print welcome message
+        :param name:
+        :return:
+        """
+        print(f'Welcome to the project {name}.')
 
 
 # Main driver
 if __name__ == '__main__':
-    print_welcome('ADAFEST')
+    Main.print_welcome('ADAFEST')
