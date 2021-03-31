@@ -1,14 +1,14 @@
 # ADAFEST: A Data-Driven Approach For Estimating Software Testability
 
-**[Morteza Zakeri](httep://m-zakeri.github.io)**†
+**[Morteza Zakeri](https://m-zakeri.github.io)**†
 
-† Ph.D. Student, Iran University of Science and Technology, Tehran, Iran (m-zakeri@live.com).
+† Ph.D. Student, [Iran University of Science and Technology](http://iust.ac.ir/en), Tehran, Iran (m-zakeri@live.com).
 
 Version 0.1.1 (20 March 2021) ├ Download [PDF] version
 
 
 **Abstract—** 
-**C**onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
+**C**onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual test effectiveness and effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
   
 **Index Terms:** Software testability, software metrics, code coverage, machine learning.
 
