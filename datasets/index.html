@@ -13,14 +13,14 @@
         <meta name="author" content="Morteza Zakeri">
       
       
-        <link rel="canonical" href="https://m-zakeri.github.io/related_projects/">
+        <link rel="canonical" href="https://m-zakeri.github.io/datasets/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>Related projects - ADAFEST Docs (v0.1.1)</title>
+        <title>ADAFEST datasets - ADAFEST Docs (v0.1.1)</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#related-projects" class="md-skip">
+        <a href="#adafest-datasets" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Related projects
+              ADAFEST datasets
             
           </span>
         </div>
@@ -309,20 +309,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../related_projects/" class="md-nav__link">
         Related projects
       </a>
-      
     </li>
   
 
@@ -370,23 +361,41 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/m-zakeri/ADAFEST/edit/master/docs/related_projects.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/m-zakeri/ADAFEST/edit/master/docs/datasets.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="related-projects">Related projects</h1>
-<p>ADAFEST is part of Morteza ZAKERI's Ph.D. works.
-The relevant projects in this series are:</p>
+                <h1 id="adafest-datasets">ADAFEST datasets</h1>
+<p>The ADAFEST datasets contains all experimental data used in our machine learning pipeline at ADAFEST project.
+Our testability prediction dataset consists of several CSV files which differ in preprocessing steps used to generate them. Each row denotes metrics for a Java class. Each column is a source code metrics or test metrics obtained by running EvoSuite on the corresponding class under test. The first column is a long name (package_name.class_name) of a Java class. More information will be available in <a href="../publications/">ADAFEST publications</a>.
+All data available on Zenodo:</p>
+<p><a href="https://doi.org/10.5281/zenodo.4650228"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.4650228.svg" /></a></p>
+<p>The current version of the testability prediction dataset (dataset06—version 0.6.x) contains the following files:</p>
 <ol>
 <li>
-<p><a href="https://m-zakeri.github.io/ARTA">ARTA</a>: requirement testability measurement tool</p>
+<p><code>DS060Raw.csv</code>: Contains only source code metrics for 19,720 Java classes. The last column indicates the number of Java classes in the enclosing file of the presented Java class. Actually, SF110 contains more than 23K Java classes. We removed small projects and projects that most of their classes are data classes used as database models.</p>
 </li>
 <li>
-<p><a href="https://m-zakeri.github.io/CodART">CodART</a>: source code testability improvement tool</p>
+<p><code>DS060RawLabeled.csv</code>: The same <code>DS060Raw.csv</code> with ten attached columns containing dynamically computed metrics obtained by running EvoSuite test data generation tools. The last four columns are combinatory metrics computed based on the primary metrics given by EvoSuite.  The most useful metrics are statement coverage, branch coverage, and the number of generated tests. More details of EvoSuite configuration and runtime metrics are available in ADAFEST relevant papers.</p>
 </li>
 <li>
-<p>[STaRT]: to be announced.</p>
+<p><code>DS06010.csv</code> and <code>DS06011.csv</code>: This file contains 18,324 Java classes. Irrelevant samples in <code>DS060RawLabeled.csv</code> (i.e., simple classes, data class, files with more than one class, classed with zero number of test cases) have been removed in this file.</p>
+</li>
+<li>
+<p><code>DS06012.csv</code>: Class with outlier metrics have been deleted from <code>DS06011.csv</code>, and this file contains 16,165 Java classes.</p>
+</li>
+<li>
+<p><code>DS06012_outliers_only.csv</code>: This file contains Java classes detected as an outlier by the local outlier factor (LOF) algorithm.</p>
+</li>
+<li>
+<p><code>DS06310.csv</code>: Package metrics (used as context vector in our testability prediction approach) have been removed from <code>DS06012.csv</code> in this file.</p>
+</li>
+<li>
+<p><code>DS06410.csv</code>: Package metrics (used as context vector in our testability prediction approach) and lexical metrics have been removed from DS06012.csv in this file.</p>
+</li>
+<li>
+<p><code>DS06510.csv</code>: Sub-metrics (systematically generated metrics) have been removed from DS06012.csv in this file.</p>
 </li>
 </ol>
                 
@@ -403,25 +412,6 @@ The relevant projects in this series are:</p>
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../publications/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Publications
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
