@@ -1,13 +1,25 @@
 """
+The module provide interfaces and classes for computing
+typical object-oriented metrics
+at different levels, including method-level, class-level, package-level, and project-level.
+
 
 """
+
+__version__ = '0.2.0'
+__author__ = 'Morteza'
+
 import sys
 from collections import Counter
+from abc import ABC, abstractmethod
 
 sys.path.insert(0, "D:/program files/scitools/bin/pc-win64/python")
-import understand
 
-from abc import ABC, abstractmethod
+# Import understand if available on the path
+try:
+    import understand as und
+except ModuleNotFoundError:
+    raise ModuleNotFoundError('Understand cannot import')
 
 
 class Metric(ABC):
@@ -41,12 +53,9 @@ class ClassMetric(PackageMetric):
         super(ClassMetric, self).__init__(db=db, project_name=project_name, package_name=package_name)
         self.class_name = class_name
 
-
-
     def compute_metric(self, metric_name: str = None):
         if metric_name == 'MinCyclomatic':
             pass
-
 
 
 class MethodMetric(ClassMetric):
@@ -194,7 +203,6 @@ class UnderstandUtility(object):
     def get_base_metric(cls, db, class_name):
         class_entity = UnderstandUtility.get_entity_by_name(db=db, class_name=class_name)
 
-
     @classmethod
     def get_method_of_class_java(cls, db, class_name):
         method_list = list()
@@ -307,7 +315,8 @@ class UnderstandUtility(object):
         if class_entity is None:
             class_entity = cls.get_class_entity_by_name(db=db, class_name=class_name)
 
-        number_of_class_in_class_file = class_entity.parent().ents('Define', 'Java Class ~Unknown ~Unresolved ~Jar ~Library')
+        number_of_class_in_class_file = class_entity.parent().ents('Define',
+                                                                   'Java Class ~Unknown ~Unresolved ~Jar ~Library')
         # print('number_of_class_in_class_file:', len(number_of_class_in_class_file))
         return number_of_class_in_class_file
 
@@ -402,15 +411,14 @@ class UnderstandUtility(object):
         # for file_entity in files:
         #     print(file_entity.longname(),
         #           file_entity.kind(),
-                  # file_entity.metric(['CountLineCode'])['CountLineCode'],
-                  # file_entity.metric(['CountLineCodeDecl'])['CountLineCodeDecl'],
-                  # file_entity.metric(['CountLineCodeExe'])['CountLineCodeExe'],
-                  # file_entity.metric(['AvgLineCode'])['AvgLineCode'],
-                  # file_entity.metric(['CountStmtDecl'])['CountStmtDecl'],
-                  # file_entity.metric(['CountStmtDecl'])['CountStmtDecl'],
-                  # file_entity.metric(['SumCyclomatic'])['SumCyclomatic'],
-                  # )
-
+        # file_entity.metric(['CountLineCode'])['CountLineCode'],
+        # file_entity.metric(['CountLineCodeDecl'])['CountLineCodeDecl'],
+        # file_entity.metric(['CountLineCodeExe'])['CountLineCodeExe'],
+        # file_entity.metric(['AvgLineCode'])['AvgLineCode'],
+        # file_entity.metric(['CountStmtDecl'])['CountStmtDecl'],
+        # file_entity.metric(['CountStmtDecl'])['CountStmtDecl'],
+        # file_entity.metric(['SumCyclomatic'])['SumCyclomatic'],
+        # )
 
         return files
 
@@ -512,7 +520,6 @@ class UnderstandUtility(object):
         return entity[0].kindname()
 
 
-
 if __name__ == '__main__':
     # Sample Database path
     # path = '../input_source/DemoProjectForSTART/DemoProjectForSTART.udb'
@@ -520,7 +527,7 @@ if __name__ == '__main__':
     path = '../testability/sf110_without_test/110_firebird.udb'
     path = '../testability/sf110_without_test/107_weka.udb'
     # path = '../testability/sf110_without_test/101_netweaver.udb'
-    db = understand.open(path)
+    db = und.open(path)
 
     # Test for dataset version 0.3.0
 
@@ -534,14 +541,14 @@ if __name__ == '__main__':
     # UnderstandUtility.NOII(db=db)
     # UnderstandUtility.number_of_method_call(db=db, class_name=r'org.firebirdsql.jdbc.AbstractDriver')
 
-    print('-'*75)
+    print('-' * 75)
 
     # pk = UnderstandUtility.get_package_of_given_class(db=db,
     #                                              class_name=r'org.firebirdsql.jdbc.FBDataSource')
     # UnderstandUtility.get_package_of_given_class_2(db=db,
-                                                   # class_name=r'org.firebirdsql.jdbc.FBDataSource'
-                                                   # class_name=r'org.firebirdsql.jdbc.parser.StatementParser'
-                                                   # )
+    # class_name=r'org.firebirdsql.jdbc.FBDataSource'
+    # class_name=r'org.firebirdsql.jdbc.parser.StatementParser'
+    # )
 
     # UnderstandUtility.get_package_interfaces_java(package_entity=pk)
     # UnderstandUtility.get_package_abstract_class_java(package_entity=pk)
