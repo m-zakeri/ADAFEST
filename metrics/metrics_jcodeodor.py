@@ -1,13 +1,21 @@
 """
-
+This module implements object-oriented metrics used in JCodeOdor tool,
+for Java source codes.
 
 """
+
+__version__ = '0.2.0'
 __author__ = 'Mohmmad Ramezani, Morteza Zakeri'
 
 import sys
 
 sys.path.insert(0, "D:/program files/scitools/bin/pc-win64/python")
-import understand as und
+
+# Import understand if available on the path
+try:
+    import understand as und
+except ModuleNotFoundError:
+    raise ModuleNotFoundError('Understand cannot import')
 
 from metrics.metrics_api_1 import UnderstandUtility
 
@@ -171,7 +179,7 @@ class JCodeOdorMetric:
         if total == 0:
             return 0
         else:
-            return (count_functionl / total)
+            return count_functionl / total
 
     def WMCNAMM(self, class_name):
         sum = 0
@@ -223,7 +231,7 @@ class JCodeOdorMetric:
                 listcol.add(callcol.ent().longname())
 
         intersect = [value for value in listrow if value in listcol]
-        if (len(intersect) > 0):
+        if len(intersect) > 0:
             return True
         else:
             return False
@@ -238,7 +246,7 @@ class JCodeOdorMetric:
             listcol.add(callcol.ent().longname())
 
         intersect = [value for value in listrow if value in listcol]
-        if (len(intersect) > 0):
+        if len(intersect) > 0:
             return True
         else:
             return False
@@ -276,7 +284,7 @@ class JCodeOdorMetric:
     def give_Methods_that_the_measured_method_calls(self, funcname):
         call_methods_list = set()
         for fi in funcname.refs("call"):
-            if (fi.ent().parent().parent() == funcname.parent().parent()):
+            if fi.ent().parent().parent() == funcname.parent().parent():
                 call_methods_list.add(fi.ent())
         return call_methods_list
 
@@ -285,7 +293,7 @@ class JCodeOdorMetric:
         if cint == 0:
             return 0
         else:
-            return (method_name.metric(["CountOutPut"]) / cint)
+            return method_name.metric(["CountOutPut"]) / cint
 
     def NOPK(self, db):
         count = 0
@@ -296,7 +304,7 @@ class JCodeOdorMetric:
     def NOCS(self, input):
         count = 0
         classes = input.ents('Define', 'class')
-        if (len(classes) > 0):
+        if len(classes) > 0:
             count += len(classes)
             for cls in classes:
                 count += self.NOCS(cls)
@@ -313,7 +321,7 @@ class JCodeOdorMetric:
     def NOM(self, class_name):
         um = 0
         for mth in class_name.ents('Define', 'method'):
-            if (not mth.refs('Override')):
+            if not mth.refs('Override'):
                 um += 1
         return um
 
@@ -366,7 +374,7 @@ class JCodeOdorMetric:
         entities = class_name.ents('Define', 'Variable')
         for enty in entities:
             for ref in enty.refs('Useby'):
-                if ((ref.ent().kind() != "Constructor")):
+                if ref.ent().kind() != "Constructor":
                     NOACC += 1
 
         if (NOM > 1 and NOA > 0):
@@ -527,8 +535,6 @@ class JCodeOdorMetric:
         self.get_metrics(db)
         return [self.class_metrics, self.method_metrics]
         # return a list consist of classes and methods and thier metrics value
-
-
 
     def ATFD(self, class_entity):
         foreign_data = class_entity.ents('Useby', 'Java Variable')
