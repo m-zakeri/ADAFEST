@@ -1,4 +1,4 @@
-# ADAFEST: A Data-Driven Approach For Estimating Software Testability
+# ADAFEST: A data-driven apparatus for estimating software testability
 
 **[Morteza Zakeri](https://m-zakeri.github.io)**†
 
