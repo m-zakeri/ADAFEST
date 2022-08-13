@@ -37,6 +37,7 @@ from sklearn.decomposition import PCA
 
 from imblearn.combine import SMOTEENN, SMOTETomek
 
+import adafest
 from adafest.code import metrics
 from adafest.code.metrics import metrics_names
 from adafest.code.metrics.metrics_api_1 import UnderstandUtility

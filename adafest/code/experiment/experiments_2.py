@@ -22,7 +22,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.inspection import permutation_importance
 from sklearn.model_selection import train_test_split
 
-from adafest.code.testability import ml_models_testability
+from adafest.code.testability import ml_models_testability, ml_models_coverageability
 from adafest.code.metrics import metrics_names
 
 
@@ -880,7 +880,7 @@ class Visualization(object):
         plt.show()
 
     def draw_permutation_importance(self, model_path=None, model=None, ):
-        reg = ml_models.Regression(df_path=r'../../dataset06/DS06013.csv')
+        reg = ml_models_coverageability.Regression(df_path=r'../../dataset06/DS06013.csv')
         if model is None:
             model = load(model_path)
 
@@ -983,7 +983,7 @@ class Visualization(object):
         # plt.show()
 
     def compute_permutation_importance(self, model_path=None, model=None, n_repeats=2, scoring='r2'):
-        reg = ml_models.Regression(df_path=r'../../dataset06/DS06013.csv')
+        reg = ml_models_coverageability.Regression(df_path=r'../../dataset06/DS06013.csv')
         if model is None:
             model = load(model_path)
 

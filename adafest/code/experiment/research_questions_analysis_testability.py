@@ -147,7 +147,6 @@ def metrics_testability_relationship(n_features=15):
         df4[col_] = df4[col_] * (1 - 0.0001) + 0.0001
         # df4[col_].replace(to_replace=0, value=0.001, inplace=True)
 
-
     col_order = ['CSLOCE_AVG', 'NOCJST', 'CSLOC_AVG', 'DEPENDS', 'NOIDU', 'NODOT',
                  'CSNOIM', 'CSNOPLM', 'NIM', 'CSNOSTD_AVG', 'CSNOSM', 'NONEW', 'NOREPR',
                  'CSNOCON', 'PKNOSM']
@@ -265,7 +264,7 @@ def metrics_testability_relationship(n_features=15):
             0.5, 0.05, f'({col_regress_info[i][6]:.4E})',
             fontsize=12, fontweight='bold',
             horizontalalignment='center', verticalalignment='center', transform=ax.transAxes,
-            color='saddlebrown', #'indigo'
+            color='saddlebrown',  # 'indigo'
         )
         i += 1
 

@@ -5,7 +5,7 @@ Coverageability: A formalism and measurement framework to quantify software test
 
 Based on the computed models with script `ml_models2`
 
-Models reported in the paper are as follow:
+Models reported in the paper are as follows:
 model1: RFR
 model2: HGBR
 model3: MLPR
@@ -53,7 +53,7 @@ def coverageability_histogram(df_path=r'dataset06/DS06013.csv', ):
     # df.boxplot(column=['Testability'])
 
     sns.boxplot(x=df['Testability'])
-    ax = sns.stripplot(x=df['Testability'],size=1 )
+    ax = sns.stripplot(x=df['Testability'], size=1)
 
     plt.show()
 
@@ -75,24 +75,24 @@ def coverageability_histogram(df_path=r'dataset06/DS06013.csv', ):
 
     fig, ax = plt.subplots()
     g1 = sns.histplot(df,
-        # x='Coverageability',     # To draw Coverageability distribution
-        x='Testability',     # To draw Testability distribution
-        # hue='Project',
-        # hue_order=[],
-        bins=100,
-        # kind='hist',
-        # kind='ecdf',
-        kde=True,
-        # bins=[1, 2, 3, 4, 5,6,7],
-        # ax=ax
-        legend=True,
-        # rug=True,
-        element="bars",
-        log_scale=(False, True),
-        line_kws=dict(linewidth=3),
-        ax=ax
+                      # x='Coverageability',     # To draw Coverageability distribution
+                      x='Testability',  # To draw Testability distribution
+                      # hue='Project',
+                      # hue_order=[],
+                      bins=100,
+                      # kind='hist',
+                      # kind='ecdf',
+                      kde=True,
+                      # bins=[1, 2, 3, 4, 5,6,7],
+                      # ax=ax
+                      legend=True,
+                      # rug=True,
+                      element="bars",
+                      log_scale=(False, True),
+                      line_kws=dict(linewidth=3),
+                      ax=ax
 
-        )
+                      )
 
     """
     g2 = sns.histplot(df,
@@ -236,11 +236,11 @@ def draw_important_features(n_features=15):
     # sns.set_theme(style='ticks')
     # sns.set_style('whitegrid', {'axes.facecolor': '.95'})
     plt.rcParams.update(
-    {
-        'text.usetex': False,
-        'font.family': 'stixgeneral',
-        'mathtext.fontset': 'stix',
-    }
+        {
+            'text.usetex': False,
+            'font.family': 'stixgeneral',
+            'mathtext.fontset': 'stix',
+        }
     )
 
     sns.set_theme(rc={  # Use mathtext, not LaTeX
@@ -433,11 +433,9 @@ def rq4():
                 hatch = next(hatches)
             bar.set_hatch(hatch)
 
-
     # plt.tight_layout()
     plt.savefig(r'charts3/compare_test_criteria_with_coverageability_R2-score_v2.png')
     plt.show()
-
 
 
 # fill_table6()

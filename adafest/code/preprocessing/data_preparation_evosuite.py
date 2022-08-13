@@ -2,6 +2,11 @@
 
 To extract compile time and runtime data from evo-suite dataset
 """
+
+__version__ = '0.3.2'
+__author__ = 'Morteza'
+
+
 import sys
 import os
 import pandas as pd
@@ -9,6 +14,8 @@ import numpy as np
 from scipy import stats
 from sklearn import preprocessing
 from imblearn.combine import SMOTEENN, SMOTETomek
+
+import adafest
 
 sys.path.insert(0, "D:/program files/scitools/bin/pc-win64/python")
 import understand

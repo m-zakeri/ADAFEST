@@ -2,6 +2,10 @@
 
 To extract compile time and runtime data from evo-suite dataset
 """
+
+__version__ = '0.3.2'
+__author__ = 'Morteza'
+
 import sys
 import os
 import pandas as pd
@@ -12,6 +16,7 @@ from imblearn.combine import SMOTEENN, SMOTETomek
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import LocalOutlierFactor
 
+import adafest
 from adafest.code.metrics import metrics_names
 
 sys.path.insert(0, "D:/program files/scitools/bin/pc-win64/python")
@@ -24,6 +29,7 @@ from adafest.code.metrics.metrics_jcodeodor import JCodeOdorMetric
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import f_classif
 from sklearn.decomposition import PCA
+
 
 class TestabilityMetrics:
     """
@@ -855,7 +861,8 @@ class TestabilityMetrics:
         for type_entity in classes_and_interfaces_list:
             pk_not_accessor_and_mutator_methods_list.append(j_code_odor.NOMNAMM(type_entity))
             pk_accessor_and_mutator_methods_list.append(j_code_odor.NOMAMM(type_entity))
-        pk_not_accessor_and_mutator_methods_list = [i for i in pk_not_accessor_and_mutator_methods_list if i is not None]
+        pk_not_accessor_and_mutator_methods_list = [i for i in pk_not_accessor_and_mutator_methods_list if
+                                                    i is not None]
         pk_accessor_and_mutator_methods_list = [i for i in pk_accessor_and_mutator_methods_list if i is not None]
 
         if len(pk_not_accessor_and_mutator_methods_list) == 0:
@@ -922,9 +929,9 @@ class TestabilityMetrics:
             pj_loc_exe_list.append(0)
         if len(pj_stmt_list) == 0:
             pj_stmt_list.append(0)
-        if len(pj_stmt_decl_list)== 0:
+        if len(pj_stmt_decl_list) == 0:
             pj_stmt_decl_list.append(0)
-        if  len(pj_stmt_exe_list) == 0:
+        if len(pj_stmt_exe_list) == 0:
             pj_stmt_exe_list.append(0)
 
         project_metrics.update({'AvgLineCodeDecl': sum(pj_loc_decl_list) / len(pj_loc_decl_list)})
@@ -1000,7 +1007,7 @@ class TestabilityMetrics:
             pj_cyclomatic_modified_list.append(0)
         if len(pj_cyclomatic_strict_list) == 0:
             pj_cyclomatic_strict_list.append(0)
-        if len( pj_essential_list) == 0:
+        if len(pj_essential_list) == 0:
             pj_essential_list.append(0)
 
         project_metrics.update({'SumCyclomatic': sum(pj_cyclomatic_list)})
@@ -1060,6 +1067,7 @@ class PreProcess:
     """
 
     """
+
     # -------------------------------------------
     # Dataset creation API
     @classmethod
@@ -1310,7 +1318,7 @@ class PreProcess:
 
     @classmethod
     def extract_coverage_before_and_after_refactoring(cls, path_before: str = None, path_after: str = None):
-        df_before = pd.read_csv(path_before, delimiter=',', index_col=False, encoding='utf8',)
+        df_before = pd.read_csv(path_before, delimiter=',', index_col=False, encoding='utf8', )
         df_after = pd.read_csv(path_after, delimiter=',', index_col=False, encoding='utf8')
         df = pd.DataFrame()
         df['Class'] = df_before['TARGET_CLASS']
@@ -1325,11 +1333,9 @@ class PreProcess:
                 coverage_after_list.append(None)
                 continue
             coverage_after_list.append(row.iloc[0]['Coverage'])
-            print('{0}, class_: {1}, coverage_after: {2}'.format(i+2, class_, row.iloc[0]['Coverage']))
+            print('{0}, class_: {1}, coverage_after: {2}'.format(i + 2, class_, row.iloc[0]['Coverage']))
         df['CoverageAfterRefactor'] = coverage_after_list
         df.to_csv('refactors/mango_statistics_both.csv', index=False)
-
-
 
     # -------------------------------------------
     # Create complete dataset API
@@ -1391,7 +1397,7 @@ class PreProcess:
     # Step 1.2
     @classmethod
     def remove_zero_variance_column(cls, path: str = None, path_new: str = None):
-        df1 = pd.read_csv(path, delimiter=',', index_col=False,)
+        df1 = pd.read_csv(path, delimiter=',', index_col=False, )
         df = df1.iloc[:, 1:-5]
         all_cols = df.columns
 
@@ -1428,7 +1434,7 @@ class PreProcess:
         for col in df.columns:
             # print(df[col].var())
             # print((df[col] == 0).sum(), len(df.index))
-            if (df[col] == 0).sum() >= round(len(df.index)*3/4.):
+            if (df[col] == 0).sum() >= round(len(df.index) * 3 / 4.):
                 df.drop(col, inplace=True, axis=1)
                 many_zero_cols.append(col)
         print('many_zero_cols: {0}: {1}'.format(len(many_zero_cols), many_zero_cols))
@@ -1447,7 +1453,7 @@ class PreProcess:
         many_zero_rows = []
 
         for index, item in ((df == 0).sum(1)).iteritems():
-            if item >= round((len(df.columns)-6) * 1/3):
+            if item >= round((len(df.columns) - 6) * 1 / 3):
                 # print(index, item)
                 many_zero_rows.append([index, item])
                 df.drop(index=index, axis=0, inplace=True)
@@ -1458,8 +1464,7 @@ class PreProcess:
         print('Total number of zeros: {0}'.format((df == 0).sum(1).sum()))
         print('Total number of non zeros: {0}'.format((df != 0).sum(1).sum()))
         print('Total number of items: {0}'.format(len(df.columns) * len(df.index)))
-        print('Portion of zeros: {0}'.format(((df == 0).sum(1).sum()) / (len(df.columns)*len(df.index))))
-
+        print('Portion of zeros: {0}'.format(((df == 0).sum(1).sum()) / (len(df.columns) * len(df.index))))
 
         # non_constant_cols = df.columns
         # constant_col = (set(all_cols)).difference(set(non_constant_cols))
@@ -1506,10 +1511,10 @@ class PreProcess:
         #              ).value_counts())
 
         data_frame['CoverageabilityNominalCombined'] = pd.cut(data_frame.loc[:, ['Label_Combine2']].T.squeeze(),
-                                                      bins=bins,
-                                                      labels=coverageability_labels,
-                                                      right=True
-                                                      )
+                                                              bins=bins,
+                                                              labels=coverageability_labels,
+                                                              right=True
+                                                              )
 
         testability_labels = ['NonTestable', 'Testable']
         data_frame['TestabilityNominal'] = pd.cut(data_frame.loc[:, ['Label_BranchCoverage']].T.squeeze(),
@@ -1524,7 +1529,8 @@ class PreProcess:
         print(data_frame.shape)
 
         # Remove extra columns
-        columns_list = ['Label_LineCoverage', 'Label_BranchCoverage', 'Label_MutationScore', 'Label_Combine1', 'Label_Combine2']
+        columns_list = ['Label_LineCoverage', 'Label_BranchCoverage', 'Label_MutationScore', 'Label_Combine1',
+                        'Label_Combine2']
         # columns_list = ['Label_LineCoverage', 'Label_MutationScore']
         data_frame_dropped = data_frame.drop(columns_list, axis=1)
 
@@ -1545,18 +1551,18 @@ class PreProcess:
         :param path_new:
         :return:
         """
-        data_frame = pd.read_csv(path, delimiter=',', index_col=False,)
+        data_frame = pd.read_csv(path, delimiter=',', index_col=False, )
         # data_frame['Label_BranchCoverage'].replace(to_replace=0, value=np.nan, inplace=True)
 
         # Define fine-grain coverageability nominal labels (five category)
         coverageability_labels = ['VeryLow', 'Low', 'Mean', 'High', 'VeryHigh']
-        coverageability_labels = ['Low', 'Moderate', 'High',]
+        coverageability_labels = ['Low', 'Moderate', 'High', ]
         # Add coverageability column
         data_frame['CoverageabilityNominalCombined'] = pd.qcut(data_frame.Label_Combine2,
-                                                      q=3,
-                                                      labels=coverageability_labels,
-                                                      # duplicates='drop'
-                                                       )
+                                                               q=3,
+                                                               labels=coverageability_labels,
+                                                               # duplicates='drop'
+                                                               )
         # print(pd.cut(data.loc[:, ['_branch_coverage']].T.squeeze(),
         #              bins=5,
         #              labels=['VeryLow', 'Low', 'Mean', 'High', 'VeryHigh']
@@ -1567,14 +1573,14 @@ class PreProcess:
 
         testability_labels = ['NonTestable', 'Testable']
         data_frame['TestabilityNominal'] = pd.qcut(data_frame.Label_BranchCoverage,
-                                                  q=2,
-                                                  labels=testability_labels
-                                                  )
+                                                   q=2,
+                                                   labels=testability_labels
+                                                   )
         testability_labels_binary = [0, 1]
         data_frame['TestabilityBinary'] = pd.qcut(data_frame.Label_BranchCoverage,
-                                                 q=2,
-                                                 labels=testability_labels_binary
-                                                 )
+                                                  q=2,
+                                                  labels=testability_labels_binary
+                                                  )
         print(data_frame.shape)
 
         # Remove extra columns
@@ -1786,7 +1792,7 @@ class PreProcess:
         # https://scikit-learn.org/stable/auto_examples/ensemble/plot_isolation_forest.html
         # pd.set_option('display.max_rows', None, 'display.max_columns', None)
         pd.options.display.max_colwidth = 1000
-        df = pd.read_csv(path, delimiter=',', index_col=False,)
+        df = pd.read_csv(path, delimiter=',', index_col=False, )
         df.columns = [column.replace(' ', '_') for column in df.columns]
 
         X1 = df.iloc[:, 1:-5]
@@ -1818,8 +1824,6 @@ class PreProcess:
         print(df2)
         df2.to_csv(path_new, index=False)
 
-
-
     # Step 5: Training set/ testing set split and save
     @classmethod
     def split_dataset_base(cls, path: str = None, path_new: str = None):
@@ -1842,8 +1846,8 @@ class PreProcess:
         df_test['CoverageabilityNominal'] = y_test
         print(df_test)
 
-        df_train.to_csv(path_new+'train.csv', index=False)
-        df_test.to_csv(path_new+'test.csv', index=False)
+        df_train.to_csv(path_new + 'train.csv', index=False)
+        df_test.to_csv(path_new + 'test.csv', index=False)
 
     # -------------------------------------------
     # Step 6: Resampling
@@ -1852,7 +1856,7 @@ class PreProcess:
     def resampling(cls, path: str = None, path_new: str = None):
         # pd.set_option("display.max_rows", None, "display.max_columns", None)
         pd.options.display.max_colwidth = 1000
-        df = pd.read_csv(path, delimiter=',', index_col=False,)
+        df = pd.read_csv(path, delimiter=',', index_col=False, )
         print('Before resampling:', df.shape)
         # Strategy one: Simply duplicate the data!: Dose not work on test set
         df2 = df.append(df, ignore_index=True)
@@ -1967,7 +1971,6 @@ class PreProcess:
 
         df3 = pd.DataFrame(x_scaled)
 
-
         # df3.insert(loc=0, column='Class', value=df['Class'])
         # df3.insert(loc=-4, column='Label_BranchCoverage', value=df['Label_BranchCoverage'])
         # df3.insert(loc=-3, column='Label_BranchCoverage', value=df['Label_BranchCoverage'])
@@ -2022,7 +2025,7 @@ class PreProcess:
     # Step 8.2: Feature extraction
     @classmethod
     def extract_feature(cls, path: str = None, path_new: str = None, number_of_features=2):
-        df = pd.read_csv(path, delimiter=',', index_col=False,)
+        df = pd.read_csv(path, delimiter=',', index_col=False, )
         print('df shape:', df.shape)
 
         X = df.iloc[:, 0:-1]  # independent columns
@@ -2035,7 +2038,7 @@ class PreProcess:
         # print(vectors_2d)
         # print(len(vectors_2d))
 
-        df2 = pd.DataFrame(vectors_2d, columns=['F' + str(i) for i in range(1, number_of_features+1)])
+        df2 = pd.DataFrame(vectors_2d, columns=['F' + str(i) for i in range(1, number_of_features + 1)])
         # df2.insert(loc=0, column='Class', value=df['Class'])
         # df2['Label_BranchCoverage'] = df['Label_BranchCoverage']
         df2['CoverageabilityNominal'] = y
@@ -2047,15 +2050,14 @@ class PreProcess:
 
     @classmethod
     def select_feature_for_testing_set(cls, path_training_set: str = None, path: str = None, path_new: str = None, ):
-        df_train = pd.read_csv( path_training_set, delimiter=',', index_col=False)
-        df_test = pd.read_csv(path, delimiter=',',index_col=False)
+        df_train = pd.read_csv(path_training_set, delimiter=',', index_col=False)
+        df_test = pd.read_csv(path, delimiter=',', index_col=False)
 
         df_test_selected_feature = pd.DataFrame()
         for col in df_train.columns:
             df_test_selected_feature[col] = df_test[col]
 
         df_test_selected_feature.to_csv(path_new, index=False)
-
 
     # -------------------------------------------
     # Remove context vector
@@ -2125,7 +2127,6 @@ class PreProcess:
 
         print(df.shape)
         df.to_csv(path_new, index=False)
-
 
     # -------------------------------------------
     @classmethod
