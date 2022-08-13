@@ -17,7 +17,7 @@ try:
 except ModuleNotFoundError:
     raise ModuleNotFoundError('Understand cannot import')
 
-from metrics.metrics_api_1 import UnderstandUtility
+from adafest.code.metrics.metrics_api_1 import UnderstandUtility
 
 
 class cls_main:

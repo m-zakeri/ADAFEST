@@ -524,8 +524,8 @@ if __name__ == '__main__':
     # Sample Database path
     # path = '../input_source/DemoProjectForSTART/DemoProjectForSTART.udb'
     path = '../input_source/apollo5-master/understand/understand_analysis.udb'
-    path = '../testability/sf110_without_test/110_firebird.udb'
-    path = '../testability/sf110_without_test/107_weka.udb'
+    path = '../adafest/code/testability/sf110_without_test/110_firebird.udb'
+    path = '../adafest/code/testability/sf110_without_test/107_weka.udb'
     # path = '../testability/sf110_without_test/101_netweaver.udb'
     db = und.open(path)
 
