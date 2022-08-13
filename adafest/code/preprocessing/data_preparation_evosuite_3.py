@@ -2,7 +2,7 @@
 ## Module tasks
 The module extracts compile-time and runtime data from evo-suite benchmark `SF110`, used in
 ADAFEST and Coverageability papers.
-It also implement preprocessing steps, including data and simple class removal, outlier removal,
+It also implements preprocessing steps, including data and simple class removal, outlier removal,
 and metric standardization.
 
 
