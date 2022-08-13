@@ -8,9 +8,9 @@ refactored_project/*
 .idea
 .idea/
 
-adafest/code/metrics/understand_api_toy_scripts
+adafest/code/metrics/understand_api_toy_scripts/
 
-*.csv
+#*.csv
 
 codart.egg-info
 dist
