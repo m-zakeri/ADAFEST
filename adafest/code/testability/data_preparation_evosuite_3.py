@@ -37,10 +37,10 @@ from sklearn.decomposition import PCA
 
 from imblearn.combine import SMOTEENN, SMOTETomek
 
-import metrics.metrics_names
-from metrics import metrics_names
-from metrics.metrics_api_1 import UnderstandUtility
-from metrics.metrics_jcodeodor import JCodeOdorMetric
+from adafest.code import metrics
+from adafest.code.metrics import metrics_names
+from adafest.code.metrics.metrics_api_1 import UnderstandUtility
+from adafest.code.metrics.metrics_jcodeodor import JCodeOdorMetric
 
 # https://scitools.com/support/python-api/
 # Python 3.8 and newer require the user add a call to os.add_dll_directory(“SciTools/bin/“
@@ -81,19 +81,19 @@ class TestabilityMetrics:
 
     @classmethod
     def get_class_ordinary_metrics_names(cls) -> list:
-        return metrics.metrics_names.class_ordinary_metrics_names
+        return adafest.code.metrics.metrics_names.class_ordinary_metrics_names
 
     @classmethod
     def get_class_lexicon_metrics_names(cls) -> list:
-        return metrics.metrics_names.class_lexicon_metrics_names
+        return adafest.code.metrics.metrics_names.class_lexicon_metrics_names
 
     @classmethod
     def get_package_metrics_names(cls) -> list:
-        return metrics.metrics_names.package_metrics_names
+        return adafest.code.metrics.metrics_names.package_metrics_names
 
     @classmethod
     def get_project_metrics_names(cls) -> list:
-        return metrics.metrics_names.project_metrics_names
+        return adafest.code.metrics.metrics_names.project_metrics_names
 
     @classmethod
     def get_all_metrics_names(cls) -> list:
@@ -121,13 +121,13 @@ class TestabilityMetrics:
     @classmethod
     def get_all_primary_metrics_names(cls) -> list:
         primary_metrics_names = list()
-        for metric_name in metrics.metrics_names.project_metrics_names_primary:
+        for metric_name in adafest.code.metrics.metrics_names.project_metrics_names_primary:
             primary_metrics_names.append('PJ_' + metric_name)
-        for metric_name in metrics.metrics_names.package_metrics_names_primary:
+        for metric_name in adafest.code.metrics.metrics_names.package_metrics_names_primary:
             primary_metrics_names.append('PK_' + metric_name)
-        for metric_name in metrics.metrics_names.class_ordinary_metrics_names_primary:
+        for metric_name in adafest.code.metrics.metrics_names.class_ordinary_metrics_names_primary:
             primary_metrics_names.append('CSORD_' + metric_name)
-        for metric_name in metrics.metrics_names.class_lexicon_metrics_names:
+        for metric_name in adafest.code.metrics.metrics_names.class_lexicon_metrics_names:
             primary_metrics_names.append('CSLEX_' + metric_name)
         return primary_metrics_names
 

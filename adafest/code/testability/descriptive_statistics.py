@@ -98,7 +98,7 @@ def main():
     DS01_path = r'dataset03/DS03014.csv'
     DS05_path = r'dataset05/DS05022.csv'
     DS05_path_pca = r'dataset05/DS05423_trainX6.csv'
-    DS06_path = r'dataset06/DS06013.csv'
+    DS06_path = r'../../dataset06/DS06013.csv'
 
     statistic = DescriptiveStatistic(path=DS06_path, )
     statistic.compute_maximum_correlation()
