@@ -1,15 +1,51 @@
-## ADAFEST
+## ADAFEST: A data-driven apparatus for estimating software testability
 
 ![ADAFESTLOGO](./docs/figs/logo.png)
 
-### ADAFEST: A data-driven apparatus for estimating software testability
+## Manifesto
 
-**C**onnecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
-
-
+Connecting runtime information to the static properties of the program is a key point in measuring software quality, including testability. Despite a large number of researches on software testability, we observed that the relationship between testability and test adequacy criteria had not been studied, and testability metrics still are far from measuring the actual testing effort. We hypothesize that testability has a significant impact on automatic testing tools. Therefore, we propose a new methodology to measure and quantify software testability by exploiting both runtime information and static properties of the source code.
 
 
-### News
+## Getting started
+To train and evaluate different testability predictions:
+
+1. Install prerequisite packgaes including `scikit-learn`, `pandas`, and `joblib`.
+2. Create a directory with the name `results` beside the ‘data’ directory in the `adafest` package.
+3. Run `main.py` script in the `adafest.code` package. 
+4. Wait to finish the training and evaluation.
+
+
+**Note1:** The `main.py` script in the `adafest.code` package, train and test five regression model including ‘DTR’, ‘RFR’, ‘HGBR’, ‘MLPR’, and ‘VoR’ in six datasets available on the `data` directory.
+
+**Note2:** The execution time of this script depends on the computational power of the system used to train the model. On the Code Ocean platform, it takes bout one hour. 
+
+**Note3:** The trained models, the results of model selection (through grid-search with cross-validation), and the result of the models’ tests (including different evaluation metrics) are saved into the `results` directory. 
+
+
+## Repository structure
+
+### Source codes
+
+* `adafest` main package contains the following structure:
+
+* `code.experiment`: Including scripts used to analyze the datasets and models to answer specific research questions discussed in the published papers. The script can be used to reproduce the reported tables and plots in the published papers. However, at this time, the scripts have not been described with comments. Opening an issue or a discussion about that would be welcomed.
+
+* `code.metric`: The scripts are related to extracting source code metrics (including object-oriented metrics, sub-metrics, lexical metrics, and package-level metrics) using the Understand API. At this time, the scripts have not been described with comments. Opening an issue or a discussion about that would be welcomed.
+
+* `code.preporcessing`: The scripts used to preprocess the extracted metrics to prepare datasets for training prediction models. At this time, the scripts have not been described with comments. Opening an issue or a discussion about that would be welcomed.
+
+* `code.testability`: Including scripts that implement model selection, training, testing, and inference for Coverageability and Testability measures proposed in this research bundle. 
+
+
+### Datasets
+* `data`: Including the dataset used to train and test the testability prediction models.
+
+* `dataset06`: Including the used to train and test the Coverageability prediction models.
+
+
+
+## News
 
 **August 13, 2022:** Initial version of full source code was released. 
 
@@ -20,9 +56,17 @@
 **October 6, 2020:** The ADAFEST repo was created.
 The full version of source code will be available as soon as the relevant paper(s) are published.
 
-### Publications
+
+## Publications
+
+[1]
+
+[2]
+
+[3]
 
 
+## Read more
+Visit the project website at [https://m-zakeri.github.io/ADAFEST](https://m-zakeri.github.io/ADAFEST).
 
-### Read more
-Visit the project website at [https://m-zakeri.github.io/ADAFEST](https://m-zakeri.github.io/ADAFEST)
+Feel free to e-mail and ask any question: `m-zakeri[at]live[dot]com`.
