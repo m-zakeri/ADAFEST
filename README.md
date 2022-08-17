@@ -43,9 +43,18 @@ To train and evaluate different testability predictions:
 
 * `dataset06`: Including the used to train and test the Coverageability prediction models.
 
+Datasets are also available on the following platforms:
+
+[1] Mendeley Data: 
+[]()
+
+[2] Zenodo:
+[https://zenodo.org/record/6683950](https://zenodo.org/record/6683950)
 
 
 ## News
+**August 15, 2022:** Executable Compute Capsule was publish on Code Ocean platform: 
+[https://codeocean.com/capsule/7939508/tree/v1](https://codeocean.com/capsule/7939508/tree/v1)
 
 **August 13, 2022:** Initial version of full source code was released. 
 
@@ -59,11 +68,21 @@ The full version of source code will be available as soon as the relevant paper(
 
 ## Publications
 
-[1]
+[1] Zakeri-Nasrabadi, M., & Parsa, S. (2021). Learning to predict software testability. 2021 26th International Computer Conference, Computer Society of Iran (CSICC), 1–5. [https://doi.org/10.1109/CSICC52343.2021.9420548](https://doi.org/10.1109/CSICC52343.2021.9420548)
 
-[2]
+[2] Zakeri‐Nasrabadi, M., & Parsa, S. (2021). Learning to predict test effectiveness. International Journal of Intelligent Systems. [https://doi.org/10.1002/int.22722](https://doi.org/10.1002/int.22722)
 
-[3]
+[3] Zakeri‐Nasrabadi, M., & Parsa, S. (2022). LAn ensemble meta-estimator to predict source code testability. Applied Soft Computing.
+
+
+
+## Cite this repository and dataset
+
+### Cite dataset
+Zakeri-Nasrabadi, Morteza; Parsa, Saeed (2022), “Testability prediction dataset”, Mendeley Data, V1, doi: 10.17632/mg5nvs9rsg.1
+
+### Cite tool
+Zakeri-Nasrabadi, M. (2022). ADAFEST: A data-driven apparatus for estimating software testability (Version 0.1.0) [Computer software]. https://doi.org/https://doi.org/10.5281/zenodo.6683950
 
 
 ## Read more
