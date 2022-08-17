@@ -49,7 +49,7 @@ Datasets are also available on the following platforms:
 []()
 
 [2] Zenodo:
-[https://zenodo.org/record/6683950](https://zenodo.org/record/6683950)
+[https://zenodo.org/record/4650228](https://zenodo.org/record/4650228)
 
 
 ## News
@@ -72,7 +72,7 @@ The full version of source code will be available as soon as the relevant paper(
 
 [2] Zakeri‐Nasrabadi, M., & Parsa, S. (2021). Learning to predict test effectiveness. International Journal of Intelligent Systems. [https://doi.org/10.1002/int.22722](https://doi.org/10.1002/int.22722)
 
-[3] Zakeri‐Nasrabadi, M., & Parsa, S. (2022). LAn ensemble meta-estimator to predict source code testability. Applied Soft Computing.
+[3] Zakeri‐Nasrabadi, M., & Parsa, S. (2022). An ensemble meta-estimator to predict source code testability. Applied Soft Computing.
 
 
 
