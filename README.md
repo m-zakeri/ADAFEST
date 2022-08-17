@@ -53,7 +53,7 @@ Datasets are also available on the following platforms:
 
 
 ## News
-**August 15, 2022:** Executable Compute Capsule was publish on Code Ocean platform: 
+**August 15, 2022:** ADAFEST Executable Compute Capsule was published on Code Ocean platform: 
 [https://codeocean.com/capsule/7939508/tree/v1](https://codeocean.com/capsule/7939508/tree/v1)
 
 **August 13, 2022:** Initial version of full source code was released. 
