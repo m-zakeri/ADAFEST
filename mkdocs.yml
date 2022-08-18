@@ -1,4 +1,4 @@
-site_name: ADAFEST Docs (v0.1.0)
+site_name: ADAFEST Docs (v1.1.0)
 site_url: https://m-zakeri.github.io
 repo_url: https://github.com/m-zakeri/ADAFEST
 site_description: A data-driven apparatus for estimating software testability
@@ -35,6 +35,8 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          rendering:
+            show_source: true
           setup_commands:
             - import sys
             - import os
@@ -47,7 +49,8 @@ nav:
     - Benchmarks: benchmarks.md
     - Datasets: datasets.md
     - Modules:
-        - Main: modules/main.md
+        - Coverageability prediction: modules/coverageability_prediction.md
+        - Testability prediction: modules/testability_prediction.md
     - Publications: publications.md
     - Related projects: related_projects.md
     - Issue Tracker: 'https://github.com/m-zakeri/ADAFEST/issues'
