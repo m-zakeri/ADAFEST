@@ -7,5 +7,9 @@ The relevant projects in this series are:
   
 2. [CodART](https://m-zakeri.github.io/CodART): source code testability improvement tool
 
-3. [STaRT]: to be announced.
+3. [QualityMeter](https://m-zakeri.github.io/QualityMeter): software quality measurement toolkit
+
+4. [OpenUnderstand](https://m-zakeri.github.io/OpenUnderstand): Program symbol table generator framework
+
+5. [STaRT]: to be announced.
 
