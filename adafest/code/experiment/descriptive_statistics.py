@@ -19,6 +19,7 @@ class DescriptiveStatistic:
         self.data_frame = pd.read_csv(path, delimiter=',', index_col=False, )
         self.data_frame.columns = [column.replace(' ', '_') for column in self.data_frame.columns]
         # self.data_frame.drop(columns=['CSORD_NumberOfClassInItsFile'], inplace=True)
+        self.scaler = None
 
     def compute_central_tendency_and_variability_measures(self):
         """

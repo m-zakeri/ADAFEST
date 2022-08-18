@@ -38,16 +38,13 @@ from sklearn.decomposition import PCA
 
 from imblearn.combine import SMOTEENN, SMOTETomek
 
-import metrics.metrics_names
-from metrics import metrics_names
-from metrics.metrics_api_1 import UnderstandUtility
-from metrics.metrics_jcodeodor import JCodeOdorMetric
-
-# https://scitools.com/support/python-api/
-# Python 3.8 and newer require the user add a call to os.add_dll_directory(“SciTools/bin/“
-# os.add_dll_directory('C:/Program Files/SciTools/bin/pc-win64')
-sys.path.insert(0, 'D:/program files/scitools/bin/pc-win64/python')
 import understand
+
+from adafest.code import metrics
+from adafest.code.metrics import metrics_names
+from adafest.code.metrics.metrics_api_1 import UnderstandUtility
+from adafest.code.metrics.metrics_jcodeodor import JCodeOdorMetric
+
 
 
 def check_compute_metrics_by_class_list(project_name: str = None,
@@ -82,19 +79,19 @@ class TestabilityMetrics:
 
     @classmethod
     def get_class_ordinary_metrics_names(cls) -> list:
-        return metrics.metrics_names.class_ordinary_metrics_names
+        return metrics_names.class_ordinary_metrics_names
 
     @classmethod
     def get_class_lexicon_metrics_names(cls) -> list:
-        return metrics.metrics_names.class_lexicon_metrics_names
+        return metrics_names.class_lexicon_metrics_names
 
     @classmethod
     def get_package_metrics_names(cls) -> list:
-        return metrics.metrics_names.package_metrics_names
+        return metrics_names.package_metrics_names
 
     @classmethod
     def get_project_metrics_names(cls) -> list:
-        return metrics.metrics_names.project_metrics_names
+        return metrics_names.project_metrics_names
 
     @classmethod
     def get_all_metrics_names(cls) -> list:

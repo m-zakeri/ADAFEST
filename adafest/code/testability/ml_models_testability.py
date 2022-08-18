@@ -9,23 +9,30 @@ for predicting testability
 presented in Applied Soft Computing Journal
 
 
-## Models
-Model 1: DecisionTreeRegressor
-Model 2: RandomForestRegressor
-Model 3: GradientBoostingRegressor
-Model 4: HistGradientBoostingRegressor
-Model 5: SGDRegressor
-Model 6: MLPRegressor
+## Machine learning models
+* Model 1: DecisionTreeRegressor
+* Model 2: RandomForestRegressor
+* Model 3: GradientBoostingRegressor
+* Model 4: HistGradientBoostingRegressor
+* Model 5: SGDRegressor
+* Model 6: MLPRegressor
 
 
-## Datasets
+## Learning datasets
 Dataset: Applied preprocessing: Number of metrics
-DS1:    (default)	Simple classes elimination, data classes elimination, outliers elimination, and metric standardization: 262 features
-DS2:    DS1 + Feature selection: 20 features
-DS3:    DS1 + Context vector elimination: 194 features
-DS4:    DS1 + Context vector elimination and lexical metrics elimination 	177
-DS5:    DS1 + Systematically generated metrics elimination	71
-DS6:    Top 15 important source code metrics affecting testability
+
+* DS1:    (default)	Simple classes elimination, data classes elimination, outliers elimination, \
+and metric standardization: 262 features
+
+* DS2:    DS1 + Feature selection: 20 features
+
+* DS3:    DS1 + Context vector elimination: 194 features
+
+* DS4:    DS1 + Context vector elimination and lexical metrics elimination  177
+
+* DS5:    DS1 + Systematically generated metrics elimination    71
+
+* DS6:    Top 15 important source code metrics affecting testability
 
 
 ## Model dependent variable
@@ -57,7 +64,6 @@ from joblib import dump, load
 from sklearn.metrics import *
 from sklearn.preprocessing import QuantileTransformer
 
-
 from sklearn import linear_model, feature_selection
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import ShuffleSplit, GridSearchCV
@@ -66,8 +72,6 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.neural_network import MLPRegressor
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor, HistGradientBoostingRegressor
 from sklearn.ensemble import VotingRegressor
-
-from adafest.code.metrics import metrics_names
 
 
 class Regression:
@@ -88,7 +92,7 @@ class Regression:
             # importance = np.abs(clf.coef_)
             # print('importance', importance)
             # clf = RandomForestRegressor()
-            # selector = feature_selection.SelectFromModel(clf, prefit=False, norm_order=2, max_features=20, threshold=None)
+            # selector = feature_selection.SelectFromModel(clf, prefit=False, norm_order=2, max_features=20,)
             selector.fit(self.X_train1, self.y_train)
 
             # Get columns to keep and create new dataframe with only selected features
@@ -116,6 +120,8 @@ class Regression:
         :param model_number: 1: DTR, 2: RFR, 3: GBR, 4: HGBR, 5: SGDR, 6: MLPR,
         :return:
         """
+        regressor = None
+        parameters = None
         if model_number == 1:
             regressor = DecisionTreeRegressor(random_state=23, )
             # Set the parameters to be used for tuning by cross-validation
@@ -166,6 +172,10 @@ class Regression:
                 'max_iter': range(50, 200, 50)
             }
 
+        if regressor is None:
+            return
+        if parameters is None:
+            return
         # Set the objectives which must be optimized during parameter tuning
         # scoring = ['r2', 'neg_mean_squared_error', 'neg_root_mean_squared_error', 'neg_mean_absolute_error',]
         scoring = ['neg_root_mean_squared_error', ]
@@ -291,7 +301,8 @@ class Regression:
         if min(y_pred) >= 0:
             df['mean_squared_log_error'] = [mean_squared_log_error(y_true, y_pred)]
 
-        # To handl ValueError: Mean Tweedie deviance error with power=2 can only be used on strictly positive y and y_pred.
+        # To handle ValueError: Mean Tweedie deviance error with power=2 can only be used on \
+        # strictly positive y and y_pred.
         if min(y_pred > 0) and min(y_true) > 0:
             df['mean_poisson_deviance'] = [mean_poisson_deviance(y_true, y_pred, )]
             df['mean_gamma_deviance'] = [mean_gamma_deviance(y_true, y_pred, )]

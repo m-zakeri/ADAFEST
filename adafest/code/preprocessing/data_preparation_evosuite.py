@@ -14,16 +14,13 @@ import numpy as np
 from scipy import stats
 from sklearn import preprocessing
 from imblearn.combine import SMOTEENN, SMOTETomek
-
-import adafest
-
 sys.path.insert(0, "D:/program files/scitools/bin/pc-win64/python")
 import understand
 
+import adafest
 from adafest.code.metrics.metrics_api_1 import *
-
 from adafest.code import metrics
-
+from adafest.code.metrics import metrics_names
 
 class TestabilityMetrics:
     """
@@ -596,11 +593,11 @@ class PreProcess:
                     print('No class entity with name {} was found!'.format(class_name))
                     continue
                 cm = ClassMetric(db=db, project_name=f[:-4], package_name=None, class_name=class_name)
-                for metric_name in adafest.code.metrics.metrics_names.class_cyclomatic_complexity:
+                for metric_name in adafest.code.metrics.metrics_names.metric_map:
                     current_metric_list.append(cm.compute_metric(metric_name=metric_name))
                 all_metrics_list.append(current_metric_list)
 
-            for i, metric_name in enumerate(adafest.code.metrics.metrics_names.class_cyclomatic_complexity):
+            for i, metric_name in enumerate(adafest.code.metrics.metrics_names.metric_map):
                 df[metric_name] = all_metrics_list[i]
 
             new_csv_dir_path = r''

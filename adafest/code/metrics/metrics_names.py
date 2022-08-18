@@ -4,6 +4,7 @@ This script contains 281 (as version 0.3.0) names of different (object-oriented)
 for Java programming language
 
 """
+
 __version__ = '1.1.0'
 __author__ = 'Morteza Zakeri-Nasrabadi'
 

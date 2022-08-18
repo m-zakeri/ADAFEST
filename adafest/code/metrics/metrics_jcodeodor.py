@@ -485,8 +485,9 @@ class JCodeOdorMetric:
         list1 = list()
         for meth in method_name.refs('call', 'method'):
             if (
-                    meth.ent().parent().longname() != class_name.parent().longname() and meth.ent().kindname() != "Public Constructor" and not (
-                    self.is_accesor_or_mutator(meth.ent()))):
+                    meth.ent().parent().longname() != meth.ent().parent().longname() and meth.ent().kindname() != "Public Constructor" and not (
+                    self.is_accesor_or_mutator(meth.ent()))
+            ):
                 list1.append(meth)
         return len(set(list1))
 

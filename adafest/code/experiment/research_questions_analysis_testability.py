@@ -19,10 +19,13 @@ from scipy.stats import ttest_ind, stats
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import adafest
+import adafest.code.metrics.metrics_names
+
 sns.set()
 # sns.set_style('whitegrid')
 
-import metrics.metrics_names
+
 
 
 def merge_all_result_csv(result_directory_path, merged_result_path):
@@ -129,7 +132,7 @@ def draw_important_features(n_features=15):
 
 def metrics_testability_relationship(n_features=15):
     df = pd.read_csv('dataset07/DS07012.csv')
-    df.rename(columns=metrics.metrics_names.metric_map, inplace=True)
+    df.rename(columns=adafest.code.metrics.metrics_names.metric_map, inplace=True)
     # print(df)
     df2 = pd.read_csv(r'dataset07/tse_R2_importance/VoR1_DS1_sc_r2_rep100.csv')  # R2
     df3 = df2.iloc[:, -1 * n_features:].iloc[:, ::-1]
@@ -416,13 +419,13 @@ def draw_refactoring_impact_on_metrics():
     df = pd.read_csv(r'dataset06/refactored01011.csv', )
     df_importants = pd.read_csv(r'dataset06/importance/VR1_DS1_sc_r2_rep30.csv')
     df_importants = df_importants.iloc[:, -1 * 30:].iloc[:, ::-1]
-    inv_map = {v: k for k, v in metrics.metrics_names.metric_map.items()}
+    inv_map = {v: k for k, v in adafest.code.metrics.metrics_names.metric_map.items()}
 
     heldout_columns = list()
     for col_ in df_importants.columns:
         heldout_columns.append(inv_map[col_])
 
-    to_be_removed_cols = set(metrics.metrics_names.metric_map.keys()).difference(heldout_columns)
+    to_be_removed_cols = set(adafest.code.metrics.metrics_names.metric_map.keys()).difference(heldout_columns)
     to_be_removed_cols = to_be_removed_cols.difference(
         set(['Class', 'Tests', 'Label_BranchCoverage', 'Coverageability1', 'Label_Combine1', 'Label_LineCoverage']))
     df.drop(columns=to_be_removed_cols, inplace=True)

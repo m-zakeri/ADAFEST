@@ -423,7 +423,7 @@ class Visualization(object):
 
         # just plot the dataset first
         fig, ax = plt.subplots()
-        cm = plt.cm.RdBu
+        # cm = plt.cm.RdBu
         cm_bright = ListedColormap(['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'])
         # ax = plt.subplot(len(datasets), len(classifiers) + 1, i)
         ax.set_title('Coverageability Distribution')

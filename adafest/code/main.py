@@ -21,8 +21,6 @@ The results will be saved in `../results` directory
 __version__ = '1.1.0'
 __author__ = 'Morteza Zakeri-Nasrabadi'
 
-import os
-import math
 import datetime
 import pandas as pd
 import joblib
@@ -36,12 +34,20 @@ from metrics import metrics_names
 def train_and_evaluate(ds_number=1):
     """
         Dataset: Applied preprocessing: Number of metrics
-        DS1: (default)	Simple classes elimination, data classes elimination, outliers elimination, and metric standardization: 262 features
+
+        DS1: (default)  Simple classes elimination, data classes elimination, \
+        outliers elimination, and metric standardization: 262 features
+
         DS2: DS1 + Feature selection: 20 features
+
         DS3: DS1 + Context vector elimination: 194 features
-        DS4: DS1 + Context vector elimination and lexical metrics elimination 	177
-        DS5: DS1 + Systematically generated metrics elimination	71
+
+        DS4: DS1 + Context vector elimination and lexical metrics elimination   177
+
+        DS5: DS1 + Systematically generated metrics elimination 71
+
         DS6: Top 15 important source code metrics affecting testability
+
     """
 
     reg = None

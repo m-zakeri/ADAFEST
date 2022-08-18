@@ -1301,11 +1301,11 @@ class PreProcess:
                     print('No class entity with name {} was found!'.format(class_name))
                     continue
                 cm = ClassMetric(db=db, project_name=f[:-4], package_name=None, class_name=class_name)
-                for metric_name in adafest.code.metrics.metrics_names.class_cyclomatic_complexity:
+                for metric_name in adafest.code.metrics.metrics_names.metric_map:
                     current_metric_list.append(cm.compute_metric(metric_name=metric_name))
                 all_metrics_list.append(current_metric_list)
 
-            for i, metric_name in enumerate(adafest.code.metrics.metrics_names.class_cyclomatic_complexity):
+            for i, metric_name in enumerate(adafest.code.metrics.metrics_names.metric_map):
                 df[metric_name] = all_metrics_list[i]
 
             new_csv_dir_path = r''

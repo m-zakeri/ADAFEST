@@ -9,24 +9,30 @@ for predicting the expected value of statement and branch coverage
 presented in International Journal of Intelligent Systems.
 
 
-## Models
-Model 1: DecisionTreeRegressor
-Model 2: RandomForestRegressor
-Model 3: GradientBoostingRegressor
-Model 4: HistGradientBoostingRegressor
-Model 5: SGDRegressor
-Model 6: MLPRegressor
+## Machine learning models
+* Model 1: DecisionTreeRegressor
+* Model 2: RandomForestRegressor
+* Model 3: GradientBoostingRegressor
+* Model 4: HistGradientBoostingRegressor
+* Model 5: SGDRegressor
+* Model 6: MLPRegressor
 
 
-## Datasest
-Dataset	Applied preprocessing	Number of metrics
-DS1: (default)	Simple classes elimination, data classes elimination, outliers elimination,
-and metric standardization	262
-DS2:    DS1 + Feature selection	20
-DS3:    DS1 + Context vector elimination	194
-DS4:    DS1 + Context vector elimination and lexical metrics elimination 	177
-DS5:    DS1 + Systematically generated metrics elimination	71
-DS6:    Top 15 important source code metrics affecting Coverageability
+## Learning datasets
+Dataset	Applied preprocessing   Number of metrics
+
+* DS1: (default)    Simple classes elimination, data classes elimination, outliers elimination,
+and metric standardization  262
+
+* DS2:    DS1 + Feature selection   20
+
+* DS3:    DS1 + Context vector elimination  194
+
+* DS4:    DS1 + Context vector elimination and lexical metrics elimination  177
+
+* DS5:    DS1 + Systematically generated metrics elimination  71
+
+* DS6:    Top 15 important source code metrics affecting Coverageability
 
 
 ## Model dependent variable
@@ -425,6 +431,8 @@ class Regression(object):
         :param model_number: 1: DTR, 2: RFR, 3: GBR, 4: HGBR, 5: SGDR, 6: MLPR,
         :return:
         """
+        regressor = None
+        parameters = None
         if model_number == 1:
             regressor = tree.DecisionTreeRegressor(random_state=42, )
             # Set the parameters to be used for tuning by cross-validation
@@ -474,6 +482,11 @@ class Regression(object):
                 'solver': ['adam', ],
                 'max_iter': range(50, 200, 50)
             }
+
+        if regressor is None:
+            return
+        if parameters is None:
+            return
 
         # Set the objectives which must be optimized during parameter tuning
         # scoring = ['r2', 'neg_mean_squared_error', 'neg_root_mean_squared_error', 'neg_mean_absolute_error',]
@@ -635,7 +648,7 @@ def train_on_ds6():
 
     reg.vote(model_path=r'sklearn_models6c/branch/VR6_DS5.joblib', dataset_number=5)
 
-    quit()
+    # quit()
 
     # Added for Mr. Esmaeily work
     # DS6 (important metrics)
@@ -649,7 +662,6 @@ def train_on_ds6():
     # reg.regress(model_path=r'sklearn_models6c/coveragability_arithmetic_mean/MLPR6_DS6.joblib', model_number=6)
     # reg.vote(model_path=r'sklearn_models6c/coveragability_arithmetic_mean/VR6_DS6.joblib', dataset_number=6)
 
-    quit()
     model_path = r'sklearn_models6c/coveragability/VR4_DS3.joblib'
     scoring = ['r2', 'neg_mean_absolute_error', 'neg_mean_squared_error', 'neg_median_absolute_error']
     n_repeat = [10, 20, 30, 40, 50]
