@@ -72,8 +72,10 @@ The full version of source code will be available as soon as the relevant paper(
 
 [2] Zakeri‐Nasrabadi, M., & Parsa, S. (2021). Learning to predict test effectiveness. International Journal of Intelligent Systems. [https://doi.org/10.1002/int.22722](https://doi.org/10.1002/int.22722)
 
-[3] Zakeri‐Nasrabadi, M., & Parsa, S. (2022). An ensemble meta-estimator to predict source code testability. Applied Soft Computing.
+[3] Zakeri‐Nasrabadi, M., & Parsa, S. (2022). An ensemble meta-estimator to predict source code testability. Applied Soft Computing. [https://doi.org/10.1016/j.asoc.2022.109562](https://doi.org/10.1016/j.asoc.2022.109562) 
 
+Free access: 
+[https://authors.elsevier.com/c/1fgY65aecSnjlt](https://authors.elsevier.com/c/1fgY65aecSnjlt)
 
 
 ## Cite this repository and dataset
